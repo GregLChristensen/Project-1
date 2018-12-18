@@ -14,16 +14,18 @@ var database = firebase.database();
 
 
 
-// Variable with Pet Finder API url---- This can be changed just a place holder
-var queryURL = 'http://api.petfinder.com/my.method?format=json&key=12345&callback=?';
- 
-// Ajax call
-$.ajax({
-    url: queryURL,
-    method: "GET"
-}).then(function(response) {
 
-});
+                (function () {
+                  $('#demo-form').parsley().on('field:validated', function() {
+                    var ok = $('.parsley-error').length === 0;
+                    $('.bs-callout-info').toggleClass('hidden', !ok);
+                    $('.bs-callout-warning').toggleClass('hidden', ok);
+                  })
+                  .on('form:submit', function() {
+                    return false; // Don't submit form for this demo
+                  });
+                });
+                
 
 
 
