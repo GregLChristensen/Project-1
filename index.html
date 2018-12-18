@@ -7,6 +7,8 @@
     <title>Tail Rescue</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Bitter|Rubik" rel="stylesheet">
+    <!-- Parsley JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.8.1/parsley.min.js"></script>
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
     <!-- Bootstrap -->
@@ -37,14 +39,7 @@
                 <div class="row">
                   <div class="col-md">
                 <form id="demo-form" data-parsley-validate="">
-                  <label for="fullname">Your Name :</label>
-                  <input type="text" class="form-control" name="fullname" required="">
-                  <label for="fullname">Pet's Name :</label>
-                  <input type="text" class="form-control" name="fullname" required="">
 
-                
-                  <label for="email">Email :</label>
-                  <input type="email" class="form-control" name="email" data-parsley-trigger="change" required="">
                 </div>
                 </div>
                   <label for="gender">Dog Gender :</label>
@@ -52,15 +47,12 @@
                     M: <input type="radio" name="gender" id="genderM" value="M" required="">
                     F: <input type="radio" name="gender" id="genderF" value="F">
                   </p>
+
+                  <label for="microchip">Microchip</label>
                 
                   <label for="dog-info">Hobbies (Optional, but 2 minimum):</label>
                   <p>
-                    Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="input" name="hobbies[]" id="name"><br>
-                    Breed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="input" name="hobbies[]" id="breed"><br>
-                    Color &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="input" name="hobbies[]" id="color"><br>
-                    Size &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="input" name="hobbies[]" id="size"><br>
-                    Hair color <input type="input" name="hobbies[]" id="color"><br>
-                    Lost At &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="input" name="hobbies[]" id="location"><br>
+
 
                   </p>
                 
@@ -71,7 +63,7 @@
                   </p>
                 
                   <br>
-                  <input type="submit" id="submit" class="btn btn-default" value="validate">
+
                 
                 </form>
                 

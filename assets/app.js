@@ -12,10 +12,82 @@
 //   Variable to hold database
 var database = firebase.database();
 
+//Submit button to add to database
+$("#submit").on("click", function(event) {
+event.preventDefault();
+
+//Grab user input 
+var fullName = $("#full-name").val().trim();
+var emailInfo = $("#email-input").val().trim();
+//var gender needs to be worked on here for radio buttons
+var dogName = $("#name").val().trim();
+var dogBreed = $("#breed").val().trim();
+var dogColor = $("#color").val().trim();
+var dogSize = $("#size").val().trim();
+var dogHair = $("#hair").val().trim();
+var dogLocation = $("location").val().trim();
+
+//Create temporary object to hold doggy data
+var newDog = {
+	name: fullName,
+	email: emailInfo,
+	dog: dogName,
+	breed: dogBreed,
+	color: dogColor,
+	size: dogSize,
+	hair: dogHair,
+	location: dogLocation
+}
+
+//Uploads data to Firebase
+database.ref().push(newDog);
+
+//Logging it
+console.log(newDog);
+
+//Clear all the text boxes
+$("#full-name").val("");
+$("#email-input").val("");
+$("#name").val("");
+$("#breed").val("");
+$("#color").val("");
+$("#size").val("");
+$("#hair").val("");
+$("location").val("");
+
+
+});
+
+//Create FireBase event for adding dogs to the database
+database.ref().on("child_added", function(childSnapshot) {
+console.log(childSnapshot.val());
+
+//Store everything into variables
+var fullName = childSnapshot.val().name;
+var emailInfo = childSnapshot.val().email;
+var dogName = childSnapshot.val().dog;
+var dogBreed = childSnapshot.val().breed;
+var dogColor = childSnapshot.val().color;
+var dogSize = childSnapshot.val().size;
+var dogHair = childSnapshot.val().hair;
+var dogLocation = childSnapshot.val().location;
+
+//Log it
+console.log(fullName);
+console.log(emailInfo);
+console.log(dogName);
+console.log(dogBreed);
+console.log(dogColor);
+console.log(dogSize);
+console.log(dogHair);
+console.log(dogLocation);
+
+});
 
 
 
-                (function () {
+
+                $(function () {
                   $('#demo-form').parsley().on('field:validated', function() {
                     var ok = $('.parsley-error').length === 0;
                     $('.bs-callout-info').toggleClass('hidden', !ok);
