@@ -16,6 +16,7 @@
     <!-- Local CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.8.1/parsley.min.js"></script>
 </head>
 <body>
     
@@ -38,10 +39,10 @@
                 <div class="row">
                   <div class="col-md">
                 <form id="demo-form" data-parsley-validate="">
-                  
+
                 </div>
                 </div>
-                  <label for="gender">Dog Gender *:</label>
+                  <label for="gender">Dog Gender :</label>
                   <p>
                     M: <input type="radio" name="gender" id="genderM" value="M" required="">
                     F: <input type="radio" name="gender" id="genderF" value="F">
@@ -51,18 +52,18 @@
                 
                   <label for="dog-info">Hobbies (Optional, but 2 minimum):</label>
                   <p>
-                    
+
 
                   </p>
                 
                 
                   <p>
-                  <label for="message">Message (20 chars min, 100 max) :</label>
-                  <textarea id="message" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 character comment.." data-parsley-validation-threshold="10"></textarea>
+                  <label for="message">Additional Notes (20 chars min, 200 max) :</label>
+                  <textarea id="message" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="200" data-parsley-minlength-message="Come on! You need to enter at least a 20 character comment.." data-parsley-validation-threshold="10"></textarea>
                   </p>
                 
                   <br>
-                  
+
                 
                 </form>
                 
@@ -84,6 +85,21 @@
     <!-- Link for lost-dog.org
     <script src = "https://www.lost-dog.org/apijs?v=3&language=en&country=us" > </script> <a href="https://www.lost-dog.org/en-us/" target="_blank"> Lost Dog United States </a> -->
     <!-- jQuery -->
+    
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBnpPjki2semGQYd2mz8wWBkcsvqtg5-Ec",
+    authDomain: "group1-5ce00.firebaseapp.com",
+    databaseURL: "https://group1-5ce00.firebaseio.com",
+    projectId: "group1-5ce00",
+    storageBucket: "group1-5ce00.appspot.com",
+    messagingSenderId: "398011782738"
+  };
+  firebase.initializeApp(config);
+</script>
+    
     <script
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
