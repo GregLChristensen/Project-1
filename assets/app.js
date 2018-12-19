@@ -80,7 +80,7 @@ console.log(dogBreed);
 console.log(dogColor);
 console.log(dogSize);
 console.log(dogHair);
-console.log(dogLocationgit);
+console.log(dogLocation);
 
 });
 
