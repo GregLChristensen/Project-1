@@ -50,11 +50,14 @@ console.log(newDog);
 //Clear all the text boxes
 $("#full-name").val("");
 $("#email-input").val("");
+$("#phone").val("");
 $("#name").val("");
 $("#breed").val("");
 $("#color").val("");
 $("#size").val("");
 $("#location").val("");
+$("#message").val("");
+
 
 
 });
@@ -73,8 +76,8 @@ var dogSize = childSnapshot.val().size;
 var dogLocation = childSnapshot.val().location;
 
 //Log it
-console.log(fullName);
-console.log(emailInfo);
+// console.log(fullName);
+// console.log(emailInfo);
 console.log(dogName);
 console.log(dogBreed);
 console.log(dogColor);
@@ -83,8 +86,8 @@ console.log(dogLocation);
 
 // Create the new row
 var newRow = $("<tr>").append(
-    $("<td>").text(fullName),
-    $("<td>").text(emailInfo),
+    // $("<td>").text(fullName),
+    // $("<td>").text(emailInfo),
     $("<td>").text(dogName),
     $("<td>").text(dogBreed),
 	$("<td>").text(dogColor),
@@ -100,7 +103,7 @@ var newRow = $("<tr>").append(
 
 
 
-
+	//Parsley function
                 $(function () {
                   $('#demo-form').parsley().on('field:validated', function() {
                     var ok = $('.parsley-error').length === 0;
@@ -115,35 +118,7 @@ var newRow = $("<tr>").append(
 
 
 
-function loadgif () {
 
-	// Storing our giphy API URL for a random cat or dog image
-	var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=b3pwT2Dgw57RUVbsOOWFaiNJH5z0XGjM&tag=cats+dogs";
 
-	// Perfoming an AJAX GET request to our queryURL
-	$.ajax({
-	  url: queryURL,
-	  method: "GET"
-	})
-
-	// After the data from the AJAX request comes back
-	  .then(function(response) {
-
-	  // Saving the image_original_url property
-		var imageUrl = response.data.image_original_url;
-
-		// Creating and storing an image tag
-		var catDogImage = $("<img>");
-
-		// Setting the catDogImage src attribute to imageUrl
-		catDogImage.attr("src", imageUrl);
-		catDogImage.attr("alt", "cat+dog image");
-
-		// Prepending the catDogImage to the images div
-		$("#images").prepend(catDogImage);
-	  });
-  };
-
-})
-//   window.onload = loadgif;
-//   console.log(loadgif)
+});
+  
