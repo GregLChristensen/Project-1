@@ -24,8 +24,7 @@ var dogName = $("#name").val().trim();
 var dogBreed = $("#breed").val().trim();
 var dogColor = $("#color").val().trim();
 var dogSize = $("#size").val().trim();
-var dogHair = $("#hair").val().trim();
-var dogLocation = $("location").val().trim();
+var dogLocation = $("#location").val().trim();
 
 //Create temporary object to hold doggy data
 var newDog = {
@@ -35,7 +34,6 @@ var newDog = {
 	breed: dogBreed,
 	color: dogColor,
 	size: dogSize,
-	hair: dogHair,
 	location: dogLocation
 };
 
@@ -52,8 +50,7 @@ $("#name").val("");
 $("#breed").val("");
 $("#color").val("");
 $("#size").val("");
-$("#hair").val("");
-$("location").val("");
+$("#location").val("");
 
 
 });
@@ -69,7 +66,6 @@ var dogName = childSnapshot.val().dog;
 var dogBreed = childSnapshot.val().breed;
 var dogColor = childSnapshot.val().color;
 var dogSize = childSnapshot.val().size;
-var dogHair = childSnapshot.val().hair;
 var dogLocation = childSnapshot.val().location;
 
 //Log it
@@ -79,8 +75,22 @@ console.log(dogName);
 console.log(dogBreed);
 console.log(dogColor);
 console.log(dogSize);
-console.log(dogHair);
 console.log(dogLocation);
+
+// Create the new row
+var newRow = $("<tr>").append(
+    $("<td>").text(fullName),
+    $("<td>").text(emailInfo),
+    $("<td>").text(dogName),
+    $("<td>").text(dogBreed),
+	$("<td>").text(dogColor),
+	$("<td>").text(dogSize),
+	$("<td>").text(dogLocation),
+
+  );
+
+  // Append the new row to the table
+  $("#pet-table > tbody").append(newRow);
 
 });
 
