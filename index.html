@@ -7,6 +7,11 @@
     <title>Tail Rescue</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Bitter|Rubik" rel="stylesheet">
+    <!-- jQuery -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
     <!-- Parsley JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.8.1/parsley.min.js"></script>
     <!-- Firebase -->
@@ -38,18 +43,17 @@
                 </div>
                 <div class="row">
                   <div class="col-md"> -->
-
+                    <div class="container-fluid">
                     <!--below line is required for parsley to validate the form-->
                 <form id="demo-form" data-validate="parsley">
                 
-                </div>
-                </div>
+                
 
                 <label for="human-info">Your Contact Info:</label>
                 <p>
-                  <input type="text" name="humanName" id="humanName" placeholder="Your Name" required="">
+                  <input type="text" name="full-name" id="full-name" placeholder="Your Name" required="">
                   <br>
-                  <input type="email"  id="email" placeholder="Your Email" data-trigger="change" required="">
+                  <input type="email"  id="email-input" placeholder="Your Email" data-trigger="change" required="">
                   <br>
                   <!--Can't get the maxlength to work with numbers.  Still working on it -Jared- -->
                   <input type="number" data-parsley-maxlength="10" id="phone" placeholder="Your Phone #" required="">
@@ -81,16 +85,16 @@
                     <input type="text" name="name" id="name" placeholder="Dog's Name" required="">
                     <br>
                     <!--I might change this to a dropdown of breeds known because the Firebase data would be messsy -Jared- -->
-                    <input type="input" name="dogInfo" id="breed" placeholder="Dog's Breed" required="">
+                    <input type="text" name="dogInfo" id="breed" placeholder="Dog's Breed" required="">
                     <br>
                     <!--Will probably change this to a dropdown to help actually match dogs, so we don't have 40 different colors-->
-                    <input type="input" name="dogInfo" id="color" placeholder="Dog's Color" required="">
+                    <input type="text" name="dogInfo" id="color" placeholder="Dog's Color" required="">
                     <br>
                     <!-- Probably a dropdown or radio button as well-->
-                    <input type="input" name="dogInfo" id="size" placeholder="Dog's Size" required="">
+                    <input type="text" name="dogInfo" id="size" placeholder="Dog's Size" required="">
                     <br>
                     <!--This is where the Google API will come into play.  Jose, if you need to change this field in any way, go ahead.-->
-                    <input type="input" name="dogInfo" id="location" placeholder="Location Lost" required="">
+                    <input type="text" name="dogInfo" id="location" placeholder="Location Lost" required="">
                     <br>
                   </p>
                 
@@ -101,9 +105,39 @@
                   </p>
                 
                   <br>
-                  <input type="submit" class="btn btn-success" value="Submit">
+                  <input type="submit" class="btn btn-success" id="submit" value="Submit">
                 
                 </form>
+              </br>
+                <div class="row">
+    
+                  <div class="col-md-12">
+            
+                    <!-- Current Pets-->
+                    <div class="card mb-4">
+                      <div class="card-header">Pets</div>
+                      <div class="card-body">
+                        <table class="table table-sm table-hover" id='pet-table'>
+                          <thead>
+                            <tr>
+                              <th scope="col">Name</th>
+                              <th scope="col">Breed</th>
+                              <th scope="col">Color</th>
+                              <th scope="col">Size</th>
+                              <th scope="col">Location</th>
+                              <th scope="col">Microchip</th>
+                              <th scope="col">Lost/Found</th>
+                              <th scope="col">M/F</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
               </div>
                 
                 
@@ -119,16 +153,11 @@
       <!-- Gif  -->
     <div id="images"></div>
 
-    <div id="images"></div>
+    
 
 
-    <!-- Link for lost-dog.org
-    <script src = "https://www.lost-dog.org/apijs?v=3&language=en&country=us" > </script> <a href="https://www.lost-dog.org/en-us/" target="_blank"> Lost Dog United States </a> -->
-    <!-- jQuery -->
-     <script
-    src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+   
+    
     
 </body>
 </html>
