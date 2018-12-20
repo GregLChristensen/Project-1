@@ -27,7 +27,7 @@
                   <p class="lead">Search for your lost pet or post a found pet here to help your neighbor!</p>
                 </div>
               </div>
-              <!-- <div class="bs-callout bs-callout-warning hidden">
+              <!--<div class="bs-callout bs-callout-warning hidden">
                   <h4>Oh snap!</h4>
                   <p>This form seems to be invalid :(</p>
                 </div>
@@ -35,40 +35,73 @@
                 <div class="bs-callout bs-callout-info hidden">
                   <h4>Yay!</h4>
                   <p>Everything seems to be ok :)</p>
-                </div> -->
+                </div>
                 <div class="row">
-                  <div class="col-md">
-                <form id="demo-form" data-parsley-validate="">
+                  <div class="col-md"> -->
 
+                    <!--below line is required for parsley to validate the form-->
+                <form id="demo-form" data-validate="parsley">
+                
                 </div>
                 </div>
-                  <label for="gender">Dog Gender :</label>
+
+                <label for="human-info">Your Contact Info:</label>
+                <p>
+                  <input type="text" name="humanName" id="humanName" placeholder="Your Name" required="">
+                  <br>
+                  <input type="email"  id="email" placeholder="Your Email" data-trigger="change" required="">
+                  <br>
+                  <!--Can't get the maxlength to work with numbers.  Still working on it -Jared- -->
+                  <input type="number" data-parsley-maxlength="10" id="phone" placeholder="Your Phone #" required="">
+                  <br>
+
+
+                </p>
+                <label for="dog-info">Dog Info:</label>
+                <br>
+                  <label for="lostOrFound">Was the dog:</label>
                   <p>
-                    M: <input type="radio" name="gender" id="genderM" value="M" required="">
-                    F: <input type="radio" name="gender" id="genderF" value="F">
+                    Lost: <input type="radio" name="lostOrFound" id="lost" value="Lost" required="">
+                    Found: <input type="radio" name="lostOrFound" id="found" value="Found">
                   </p>
 
-                  <label for="microchip">Microchip</label>
-                
-                  <label for="dog-info">Hobbies (Optional, but 2 minimum):</label>
                   <p>
-                    Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="input" name="hobbies[]" id="name"><br>
-                    Breed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="input" name="hobbies[]" id="breed"><br>
-                    Color &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="input" name="hobbies[]" id="color"><br>
-                    Size &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="input" name="hobbies[]" id="size"><br>
-                    Hair color <input type="input" name="hobbies[]" id="color"><br>
-                    Lost At &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="input" name="hobbies[]" id="location"><br>
+                    Male: <input type="radio" name="gender" id="genderM" value="M" required="">
+                    Female: <input type="radio" name="gender" id="genderF" value="F">
+                  </p>
 
+                  <label for="microchip">Microchip?</label>
+                  <p>
+                    Yes: <input type="radio" name="microchip" id="microchipY" value="Yes" required="">
+                    No: <input type="radio" name="microchip" id="microchipN" value="No">
+                  </p>
+
+                  <label for="dog-info">2 of the following required):</label>
+                  <p>
+                    <input type="text" name="name" id="name" placeholder="Dog's Name" required="">
+                    <br>
+                    <!--I might change this to a dropdown of breeds known because the Firebase data would be messsy -Jared- -->
+                    <input type="input" name="dogInfo" id="breed" placeholder="Dog's Breed" required="">
+                    <br>
+                    <!--Will probably change this to a dropdown to help actually match dogs, so we don't have 40 different colors-->
+                    <input type="input" name="dogInfo" id="color" placeholder="Dog's Color" required="">
+                    <br>
+                    <!-- Probably a dropdown or radio button as well-->
+                    <input type="input" name="dogInfo" id="size" placeholder="Dog's Size" required="">
+                    <br>
+                    <!--This is where the Google API will come into play.  Jose, if you need to change this field in any way, go ahead.-->
+                    <input type="input" name="dogInfo" id="location" placeholder="Location Lost" required="">
+                    <br>
                   </p>
                 
-                
+                <!--I can't get the data-parsley-length to check the form length correctly or warn without making it a required field. Still trouble shooting. -Jared- -->
                   <p>
                   <label for="message">Additional Notes (20 chars min, 200 max) :</label>
-                  <textarea id="message" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="200" data-parsley-minlength-message="Come on! You need to enter at least a 20 character comment.." data-parsley-validation-threshold="10"></textarea>
+                  <textarea id="message" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-length="[20, 200]"  data-parsley-validation-threshold="10"></textarea>
                   </p>
                 
                   <br>
-
+                  <input type="submit" class="btn btn-success" value="Submit">
                 
                 </form>
                 
@@ -85,7 +118,6 @@
 
     <div id="images">
 
-    </div>
 
     <!-- Link for lost-dog.org
     <script src = "https://www.lost-dog.org/apijs?v=3&language=en&country=us" > </script> <a href="https://www.lost-dog.org/en-us/" target="_blank"> Lost Dog United States </a> -->
