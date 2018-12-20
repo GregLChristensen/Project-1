@@ -1,3 +1,7 @@
+ $(document).ready(function(){
+
+ 
+ 
  // Initialize Firebase
  var config = {
     apiKey: "AIzaSyBnpPjki2semGQYd2mz8wWBkcsvqtg5-Ec",
@@ -139,5 +143,7 @@ function loadgif () {
 		$("#images").prepend(catDogImage);
 	  });
   };
-  window.onload = loadgif;
-  console.log(loadgif)
+
+})
+//   window.onload = loadgif;
+//   console.log(loadgif)
