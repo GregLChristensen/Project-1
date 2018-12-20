@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- Local CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcXBbhAHZ_jZJMsrgXVcbVDGuBNwYRV40&libraries=places&callback=initAutocomplete"
+    async defer></script>
     <script src="assets/app.js"></script>
     
 </head>
@@ -32,6 +34,9 @@
                   <p class="lead">Search for your lost pet or post a found pet here to help your neighbor!</p>
                 </div>
               </div>
+
+              <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+              <div id="map"></div>
               <!--<div class="bs-callout bs-callout-warning hidden">
                   <h4>Oh snap!</h4>
                   <p>This form seems to be invalid :(</p>
@@ -110,6 +115,9 @@
                 
                 </form>
               </br>
+
+              
+                <br>
                 <div class="row">
     
                   <div class="col-md-12">
@@ -149,10 +157,10 @@
                     </div>
                   </footer>
               
+                  
     
 
-      <!-- Gif  -->
-    <div id="images"></div>
+  
 
     
 
@@ -160,5 +168,7 @@
    
     
     
+  
+   
 </body>
 </html>
