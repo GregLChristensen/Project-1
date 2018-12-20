@@ -58,7 +58,8 @@
                 <p>
                   <input type="text" name="full-name" id="full-name" placeholder="Your Name" required="">
                   <br>
-                  <input type="email"  id="email-input" placeholder="Your Email" data-trigger="change" required="">
+                  <!-- <input type="email" data-parsley-type="email" data-parsley-trigger="input"  id="email-input" placeholder="Your Email" required> -->
+                  <input type="email" class="form-control" name="email" data-parsley-trigger="change" id="email-input" required="">
                   <br>
                   <!--Can't get the maxlength to work with numbers.  Still working on it -Jared- -->
                   <input type="number" data-parsley-maxlength="10" id="phone" placeholder="Your Phone #" required="">
@@ -165,6 +166,7 @@
 
 
    
+    
     
   
    
