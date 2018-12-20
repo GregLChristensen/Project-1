@@ -37,7 +37,7 @@ var newDog = {
 	size: dogSize,
 	hair: dogHair,
 	location: dogLocation
-}
+};
 
 //Uploads data to Firebase
 database.ref().push(newDog);
@@ -80,7 +80,7 @@ console.log(dogBreed);
 console.log(dogColor);
 console.log(dogSize);
 console.log(dogHair);
-console.log(dogLocationgit);
+console.log(dogLocation);
 
 });
 
@@ -94,7 +94,7 @@ console.log(dogLocationgit);
                     $('.bs-callout-warning').toggleClass('hidden', ok);
                   })
                   .on('form:submit', function() {
-                    return false; // Don't submit form for this demo
+                    return true; // Don't submit form for this demo
                   });
                 });
                 
