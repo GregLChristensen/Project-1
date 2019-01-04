@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-
+    $(document).validin(validin_default_options);
 
   // Initialize Firebase
   var config = {
@@ -100,21 +100,6 @@ var newRow = $("<tr>").append(
   $("#pet-table > tbody").append(newRow);
 
 });
-
-
-
-	//Parsley function
-                $(function () {
-                  $('#demo-form').parsley().on('field:validated', function() {
-                    var ok = $('.parsley-error').length === 0;
-                    $('.bs-callout-info').toggleClass('hidden', !ok);
-                    $('.bs-callout-warning').toggleClass('hidden', ok);
-                  })
-                  .on('form:submit', function() {
-                    return true; // Don't submit form for this demo
-                  });
-                });
-                
 
 
 
