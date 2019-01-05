@@ -51,136 +51,127 @@
 </head>
 
 <body>
+    
+        <!-- Jumbotron -->
+    <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                  <h1 class="display-4">Tail Rescue</h1>
+                  <p class="lead">Search for your lost pet or post a found pet here to help your neighbor!</p>
+                </div>
+              </div>
 
-  <!-- Jumbotron -->
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">Tail Rescue</h1>
-      <p class="lead">Search for your lost pet or post a found pet here to help your neighbor!</p>
-    </div>
-  </div>
+              <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+              <div id="map"></div>
 
-  <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-  <div id="map"></div>
+                    <div class="container-fluid">
+                    
+                <form id="demo-form">
+                
+                
 
-  <div class="container-fluid">
-
-    <form id="demo-form">
-
-
-
-      <label for="human-info">Your Contact Info:</label>
-      <p>
-        <input name="full-name" id="full-name" placeholder="Your Name" validate="name">
-        <br>
-        <input name="email" data-parsley-trigger="change" id="email-input" placeholder="Email" validate="email">
-        <br>
-        <input name="phone" id="phone" placeholder="Your Phone #" validate="phone">
-        <br>
-
-
-      </p>
-      <label for="dog-info">Dog Info:</label>
-      <br>
-      <label for="lostOrFound">Was the dog:</label>
-      <p>
-        Lost: <input type="radio" name="lostOrFound" id="lost" value="Lost">
-        Found: <input type="radio" name="lostOrFound" id="found" value="Found">
-      </p>
-
-      <p>
-        Male: <input type="radio" name="gender" id="genderM" value="M">
-        Female: <input type="radio" name="gender" id="genderF" value="F">
-      </p>
-
-      <label for="microchip">Microchip?</label>
-      <p>
-        Yes: <input type="radio" name="microchip" id="microchipY" value="Yes">
-        No: <input type="radio" name="microchip" id="microchipN" value="No">
-      </p>
-
-      <label for="dog-info">2 of the following required):</label>
-      <p>
-        <input name="name" id="name" placeholder="Dog's Name" validate="name">
-        <br>
-        <input name="dogInfo" id="breed" placeholder="Dog's Breed" validate="alpha">
-        <br>
-        <input name="dogInfo" id="color" placeholder="Dog's Color" validate="alpha">
-        <br>
-        <input name="dogInfo" id="size" placeholder="Dog's Weight (lbs)" validate="max:200">
-        <br>
-        <!--This is where the Google API will come into play.  Jose, if you need to change this field in any way, go ahead.-->
-        <input name="dogInfo" id="location" placeholder="Location Lost">
-        <br>
-      </p>
-
-      <p>
-        <label for="message">Additional Notes (20 chars min, 200 max) :</label>
-        <textarea id="message" class="form-control" name="message" validate="min_length:5" validate="MAX_length:200"></textarea>
-      </p>
-
-      <br>
-      <input type="submit" class="btn btn-success" id="submit" value="Submit">
-
-    </form>
-    </br>
+                <label for="human-info">Your Contact Info:</label>
+                <p>
+                  <input name="full-name" id="full-name" placeholder="Your Name" validate="name">
+                  <br>
+                  <input name="email" id="email-input" placeholder="Email" validate="email">
+                  <br>
+                  <input name="phone" id="phone" placeholder="Your Phone #" validate="phone">
+                  <br>
 
 
-    <br>
-    <div class="row">
+                </p>
+                <label for="dog-info">Dog Info:</label>
+                <br>
+                  <label for="lostOrFound">Was the dog:</label>
+                  <p>
+                  <input name="lostOrFound" id="lost" placeholder="Lost/Found?" validate="alpha">
+                  <br>                
+                  <input name="gender" id="gender" placeholder="Male/Female?" validate="alpha">
+                  <br>
+                  <input name="microchip" id="microchip" placeholder="Microchipped (Yes/No)?" validate="alpha">
+                  <br>
+                  <br>
+                  
+                  <label for="dog-info">Please include as much of the following information as possible:</label>
+                  <p>
+                    <input name="name" id="name" placeholder="Dog's Name" validate="name">
+                    <br>
+                    <input name="dogInfo" id="breed" placeholder="Dog's Breed" validate="alpha">
+                    <br>
+                    <input name="dogInfo" id="color" placeholder="Dog's Color" validate="alpha">
+                    <br>
+                    <input name="dogInfo" id="size" placeholder="Dog's Weight (lbs)" validate="max:200">
+                    <br>
+                    <!--This is where the Google API will come into play.  Tony, if you need to change this field in any way, go ahead.-->
+                    <input name="dogInfo" id="location" placeholder="Location Lost">
+                    <br>
+                  </p>
+                
+                  <p>
+                  <label for="message">Additional Notes (20 chars min, 200 max) :</label>
+                  <textarea id="message" class="form-control" name="message" validate="min_length:5" validate="MAX_length:200"></textarea>
+                  </p>
+                
+                  <br>
+                  <input type="submit" class="btn btn-success" id="submit" value="Submit">
+                
+                </form>
+              </br>
 
-      <div class="col-md-12">
+              
+                <br>
+                <div class="row">
+    
+                  <div class="col-md-12">
+            
+                    <!-- Current Pets-->
+                    <div class="card mb-4">
+                      <div class="card-header">Pets</div>
+                      <div class="card-body">
+                        <table class="table table-sm table-hover" id='pet-table'>
+                          <thead>
+                            <tr>
+                              <th scope="col">Dog Name</th>
+                              <th scope="col">Breed</th>
+                              <th scope="col">Color</th>
+                              <th scope="col">Size</th>
+                              <th scope="col">Location</th>
+                              <th scope="col">Microchip</th>
+                              <th scope="col">Lost/Found</th>
+                              <th scope="col">M/F</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+              </div>
+                
+                
 
-        <!-- Current Pets-->
-        <div class="card mb-4">
-          <div class="card-header">Pets</div>
-          <div class="card-body">
-            <table class="table table-sm table-hover" id='pet-table'>
-              <thead>
-                <tr>
-                  <th scope="col">Dog Name</th>
-                  <th scope="col">Breed</th>
-                  <th scope="col">Color</th>
-                  <th scope="col">Size</th>
-                  <th scope="col">Location</th>
-                  <th scope="col">Microchip</th>
-                  <th scope="col">Lost/Found</th>
-                  <th scope="col">M/F</th>
-                </tr>
-              </thead>
-              <tbody>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
+              <footer class="footer">
+                    <div class="container">
+                      <span class="text-muted">Powered by <a target="_blank" href="https://github.com/Tonybarajas21">Tony</a>, <a target="_blank" href="https://github.com/GregLChristensen">Greg</a>, <a target="_blank" href="https://github.com/jaredrhodes15">Jared</a> and <a target="_blank" href="https://github.com/ibaveda">Igor</a> </span>
+                    </div>
+                  </footer>
+              
+                  
+    
 
-  </div>
+     
 
-
-
-  <footer class="footer">
-    <div class="container">
-      <span class="text-muted">Powered by <a target="_blank" href="https://github.com/Tonybarajas21">Tony</a>, <a
-          target="_blank" href="https://github.com/GregLChristensen">Greg</a>, <a target="_blank" href="https://github.com/jaredrhodes15">Jared</a>
-        and <a target="_blank" href="https://github.com/ibaveda">Igor</a> </span>
-    </div>
-  </footer>
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
-
+   
+    
+    
+  
+   
 </body>
 
 </html>
