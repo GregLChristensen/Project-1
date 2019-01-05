@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+            $(document).validin(validin_default_options);
 
 
   // Initialize Firebase
@@ -23,7 +24,9 @@ event.preventDefault();
 //Grab user input 
 var fullName = $("#full-name").val().trim();
 var emailInfo = $("#email-input").val().trim();
-//var gender needs to be worked on here for radio buttons
+var lostOrFound = $("#lost").val().trim();
+var gender = $("#gender").val().trim();
+var microchip = $("#microchip").val().trim();
 var dogName = $("#name").val().trim();
 var dogBreed = $("#breed").val().trim();
 var dogColor = $("#color").val().trim();
@@ -34,7 +37,10 @@ var message = $("#message").val().trim();
 //Create temporary object to hold doggy data
 var newDog = {
 	name: fullName,
-	email: emailInfo,
+    email: emailInfo,
+    lostOrFound: lostOrFound,
+    gender: gender,
+    microchip: microchip,
 	dog: dogName,
 	breed: dogBreed,
 	color: dogColor,
@@ -53,6 +59,9 @@ console.log(newDog);
 $("#full-name").val("");
 $("#email-input").val("");
 $("#phone").val("");
+$("#lost").val("");
+$("#gender").val("");
+$("#microchip").val("");
 $("#name").val("");
 $("#breed").val("");
 $("#color").val("");
@@ -71,6 +80,9 @@ console.log(childSnapshot.val());
 //Store everything into variables
 var fullName = childSnapshot.val().name;
 var emailInfo = childSnapshot.val().email;
+var lostOrFound = childSnapshot.val().lostOrFound;
+var gender = childSnapshot.val().gender;
+var microchip = childSnapshot.val().microchip;
 var dogName = childSnapshot.val().dog;
 var dogBreed = childSnapshot.val().breed;
 var dogColor = childSnapshot.val().color;
@@ -79,8 +91,9 @@ var dogLocation = childSnapshot.val().location;
 var message = childSnapshot.val().message;
 
 //Log it
-// console.log(fullName);
-// console.log(emailInfo);
+console.log(lostOrFound);
+console.log(gender);
+console.log(microchip);
 console.log(dogName);
 console.log(dogBreed);
 console.log(dogColor);
@@ -97,7 +110,12 @@ var newRow = $("<tr>").append(
 	$("<td>").text(dogColor),
 	$("<td>").text(dogSize),
     $("<td>").text(dogLocation),
-    
+    $("<td>").text(microchip),
+    $("<td>").text(lostOrFound),
+    $("<td>").text(gender),
+
+
+
 
   );
 
@@ -105,22 +123,6 @@ var newRow = $("<tr>").append(
   $("#pet-table > tbody").append(newRow);
 
 });
-
-
-
-	//Parsley function
-                $(function () {
-                  $('#demo-form').parsley().on('field:validated', function() {
-                    var ok = $('.parsley-error').length === 0;
-                    $('.bs-callout-info').toggleClass('hidden', !ok);
-                    $('.bs-callout-warning').toggleClass('hidden', ok);
-                  })
-                  .on('form:submit', function() {
-                    return true; // Don't submit form for this demo
-                  });
-                });
-                
-
 
 
 
