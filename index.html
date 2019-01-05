@@ -59,22 +59,15 @@
                 <br>
                   <label for="lostOrFound">Was the dog:</label>
                   <p>
-                    Lost: <input type="radio" name="lostOrFound" id="lost" value="Lost">
-                    Found: <input type="radio" name="lostOrFound" id="found" value="Found">
-                  </p>
-
-                  <p>
-                    Male: <input type="radio" name="gender" id="genderM" value="M">
-                    Female: <input type="radio" name="gender" id="genderF" value="F">
-                  </p>
-
-                  <label for="microchip">Microchip?</label>
-                  <p>
-                    Yes: <input type="radio" name="microchip" id="microchipY" value="Yes">
-                    No: <input type="radio" name="microchip" id="microchipN" value="No">
-                  </p>
-
-                  <label for="dog-info">2 of the following required):</label>
+                  <input name="lostOrFound" id="lost" placeholder="Lost/Found?" validate="alpha">
+                  <br>                
+                  <input name="gender" id="gender" placeholder="Male/Female?" validate="alpha">
+                  <br>
+                  <input name="microchip" id="microchip" placeholder="Microchipped (Yes/No)?" validate="alpha">
+                  <br>
+                  <br>
+                  
+                  <label for="dog-info">Please include as much of the following information as possible:</label>
                   <p>
                     <input name="name" id="name" placeholder="Dog's Name" validate="name">
                     <br>

@@ -23,22 +23,31 @@ event.preventDefault();
 //Grab user input 
 var fullName = $("#full-name").val().trim();
 var emailInfo = $("#email-input").val().trim();
-//var gender needs to be worked on here for radio buttons
+var phone = $("#phone").val().trim();
+var lostOrFound = $("#lost").val().trim();
+var gender = $("#gender").val().trim();
+var microchip = $("#microchip").val().trim();
 var dogName = $("#name").val().trim();
 var dogBreed = $("#breed").val().trim();
 var dogColor = $("#color").val().trim();
 var dogSize = $("#size").val().trim();
 var dogLocation = $("#location").val().trim();
+var message = $("#message").val().trim();
 
 //Create temporary object to hold doggy data
 var newDog = {
 	name: fullName,
-	email: emailInfo,
+    email: emailInfo,
+    phone: phone,
+    lostOrFound: lostOrFound,
+    gender: gender,
+    microchip: microchip,
 	dog: dogName,
 	breed: dogBreed,
 	color: dogColor,
 	size: dogSize,
-	location: dogLocation
+    location: dogLocation,
+    message: message
 };
 
 //Uploads data to Firebase
@@ -51,6 +60,9 @@ console.log(newDog);
 $("#full-name").val("");
 $("#email-input").val("");
 $("#phone").val("");
+$("#lost").val("");
+$("#gender").val("");
+$("#microchip").val("");
 $("#name").val("");
 $("#breed").val("");
 $("#color").val("");
@@ -69,20 +81,27 @@ console.log(childSnapshot.val());
 //Store everything into variables
 var fullName = childSnapshot.val().name;
 var emailInfo = childSnapshot.val().email;
+var phone = childSnapshot.val().phone;
+var lostOrFound = childSnapshot.val().lostOrFound;
+var gender = childSnapshot.val().gender;
+var microchip = childSnapshot.val().microchip;
 var dogName = childSnapshot.val().dog;
 var dogBreed = childSnapshot.val().breed;
 var dogColor = childSnapshot.val().color;
 var dogSize = childSnapshot.val().size;
 var dogLocation = childSnapshot.val().location;
+var message = childSnapshot.val().message;
 
 //Log it
-// console.log(fullName);
-// console.log(emailInfo);
 console.log(dogName);
+console.log(lostOrFound);
+console.log(gender);
+console.log(microchip);
 console.log(dogBreed);
 console.log(dogColor);
 console.log(dogSize);
 console.log(dogLocation);
+console.log(message);
 
 // Create the new row
 var newRow = $("<tr>").append(
@@ -92,7 +111,14 @@ var newRow = $("<tr>").append(
     $("<td>").text(dogBreed),
 	$("<td>").text(dogColor),
 	$("<td>").text(dogSize),
-	$("<td>").text(dogLocation),
+    $("<td>").text(dogLocation),
+    $("<td>").text(microchip),
+    $("<td>").text(lostOrFound),
+    $("<td>").text(gender),
+
+
+
+    
 
   );
 
