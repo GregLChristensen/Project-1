@@ -9,14 +9,20 @@ body {
     background-size: cover;
     background-attachment: fixed;
     margin-bottom: 60px;
-    /* font-family:'Bitter', serif; */
-    font-family: 'Rubik', sans-serif;
+    /* font-family:'Luckiest Guy', cursive; */
+    font-family: 'Luckiest Guy', cursive;
+    font-size: larger
 
 }
 
 .jumbotron {
     opacity: 0.75;
 
+}
+
+textarea.form-control {
+  height: auto;
+  width: 50%;
 }
 
 .footer {

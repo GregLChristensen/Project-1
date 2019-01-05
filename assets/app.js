@@ -24,6 +24,7 @@ event.preventDefault();
 //Grab user input 
 var fullName = $("#full-name").val().trim();
 var emailInfo = $("#email-input").val().trim();
+var phone = $("#phone").val().trim();
 var lostOrFound = $("#lost").val().trim();
 var gender = $("#gender").val().trim();
 var microchip = $("#microchip").val().trim();
@@ -38,6 +39,7 @@ var message = $("#message").val().trim();
 var newDog = {
 	name: fullName,
     email: emailInfo,
+    phone: phone,
     lostOrFound: lostOrFound,
     gender: gender,
     microchip: microchip,
@@ -80,6 +82,7 @@ console.log(childSnapshot.val());
 //Store everything into variables
 var fullName = childSnapshot.val().name;
 var emailInfo = childSnapshot.val().email;
+var phone = childSnapshot.val().phone;
 var lostOrFound = childSnapshot.val().lostOrFound;
 var gender = childSnapshot.val().gender;
 var microchip = childSnapshot.val().microchip;
@@ -91,10 +94,10 @@ var dogLocation = childSnapshot.val().location;
 var message = childSnapshot.val().message;
 
 //Log it
+console.log(dogName);
 console.log(lostOrFound);
 console.log(gender);
 console.log(microchip);
-console.log(dogName);
 console.log(dogBreed);
 console.log(dogColor);
 console.log(dogSize);
@@ -116,6 +119,7 @@ var newRow = $("<tr>").append(
 
 
 
+    
 
   );
 
