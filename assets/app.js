@@ -124,7 +124,7 @@ var newRow = $("<tr>").append(
 
 
 
-
+            });
 
   
 function initAutocomplete() {
@@ -197,4 +197,3 @@ function initAutocomplete() {
 
 
 
-});
