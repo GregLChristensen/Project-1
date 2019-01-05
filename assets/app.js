@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-
+    $(document).validin(validin_default_options);
 
   // Initialize Firebase
   var config = {
@@ -29,7 +29,6 @@ var dogBreed = $("#breed").val().trim();
 var dogColor = $("#color").val().trim();
 var dogSize = $("#size").val().trim();
 var dogLocation = $("#location").val().trim();
-var message = $("#message").val().trim();
 
 //Create temporary object to hold doggy data
 var newDog = {
@@ -39,8 +38,7 @@ var newDog = {
 	breed: dogBreed,
 	color: dogColor,
 	size: dogSize,
-    location: dogLocation,
-    message: message
+	location: dogLocation
 };
 
 //Uploads data to Firebase
@@ -76,7 +74,6 @@ var dogBreed = childSnapshot.val().breed;
 var dogColor = childSnapshot.val().color;
 var dogSize = childSnapshot.val().size;
 var dogLocation = childSnapshot.val().location;
-var message = childSnapshot.val().message;
 
 //Log it
 // console.log(fullName);
@@ -86,7 +83,6 @@ console.log(dogBreed);
 console.log(dogColor);
 console.log(dogSize);
 console.log(dogLocation);
-console.log(message);
 
 // Create the new row
 var newRow = $("<tr>").append(
@@ -96,8 +92,7 @@ var newRow = $("<tr>").append(
     $("<td>").text(dogBreed),
 	$("<td>").text(dogColor),
 	$("<td>").text(dogSize),
-    $("<td>").text(dogLocation),
-    
+	$("<td>").text(dogLocation),
 
   );
 
@@ -108,24 +103,9 @@ var newRow = $("<tr>").append(
 
 
 
-	//Parsley function
-                $(function () {
-                  $('#demo-form').parsley().on('field:validated', function() {
-                    var ok = $('.parsley-error').length === 0;
-                    $('.bs-callout-info').toggleClass('hidden', !ok);
-                    $('.bs-callout-warning').toggleClass('hidden', ok);
-                  })
-                  .on('form:submit', function() {
-                    return true; // Don't submit form for this demo
-                  });
-                });
-                
 
 
-
-
-            });
-
+});
   
 function initAutocomplete() {
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -193,7 +173,3 @@ function initAutocomplete() {
       map.fitBounds(bounds);
   });
 }
-
-
-
-
